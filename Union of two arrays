@@ -1,0 +1,49 @@
+Given two arrays a[] and b[] of size n and m respectively. The task is to find the number of elements in the union between these two arrays.
+
+Union of the two arrays can be defined as the set containing distinct elements from both the arrays.
+If there are repetitions, then only one occurrence of element should be printed in the union
+#include <stdio.h>
+
+int countUnion(int a[], int n, int b[], int m) {
+    int count = 0;
+    int i = 0, j = 0;
+
+    while (i < n && j < m) {
+        if (a[i] < b[j]) {
+            count++;
+            i++;
+        } else if (a[i] > b[j]) {
+            count++;
+            j++;
+        } else {
+            count++;
+            i++;
+            j++;
+        }
+    }
+
+    while (i < n) {
+        count++;
+        i++;
+    }
+
+    while (j < m) {
+        count++;
+        j++;
+    }
+
+    return count;
+}
+
+int main() {
+    int a[] = { -1, 2, 3, 5, 7 };
+    int n = sizeof(a) / sizeof(a[0]);
+
+    int b[] = { 3, 4, 5, 6 };
+    int m = sizeof(b) / sizeof(b[0]);
+
+    int result = countUnion(a, n, b, m);
+    printf("Number of elements in the union: %d\n", result);
+
+    return 0;
+}
