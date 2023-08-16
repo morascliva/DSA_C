@@ -14,3 +14,38 @@ Example 2:
 
 Input: nums = [3,1,3,4,2]
 Output: 3
+
+#include <stdio.h>
+
+void findDuplicates(int arr[], int n) {
+    int hashSet[n]; // Assuming the range of values is from 1 to n
+    for (int i = 0; i < n; i++) {
+        hashSet[i] = 0;
+    }
+
+    int duplicatesFound = 0;
+    printf("Duplicate elements: ");
+
+    for (int i = 0; i < n; i++) {
+        if (hashSet[arr[i]] == 1) {
+            printf("%d ", arr[i]);
+            hashSet[arr[i]] = 2; // Mark as found again to avoid duplicate printing
+            duplicatesFound = 1;
+        } else if (hashSet[arr[i]] == 0) {
+            hashSet[arr[i]] = 1;
+        }
+    }
+
+    if (!duplicatesFound) {
+        printf("No duplicates found.\n");
+    }
+}
+
+int main() {
+    int arr[] = {1, 3, 4, 2, 2, 4, 5, 6, 6}; // Example array with multiple duplicates
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    findDuplicates(arr, n);
+
+    return 0;
+}
