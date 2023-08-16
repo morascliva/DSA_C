@@ -1,1 +1,42 @@
+#include <stdio.h>
 
+void mergeArrays(int arr1[], int m, int arr2[], int n) {
+    int i = m - 1; // Index for the last element in arr1
+    int j = n - 1; // Index for the last element in arr2
+    int k = m + n - 1; // Index for the last position in the merged array
+
+    while (i >= 0 && j >= 0) {
+        if (arr1[i] >= arr2[j]) {
+            arr1[k] = arr1[i];
+            i--;
+        } else {
+            arr1[k] = arr2[j];
+            j--;
+        }
+        k--;
+    }
+
+    // If elements in arr2 are left, copy them to the beginning of arr1
+    while (j >= 0) {
+        arr1[k] = arr2[j];
+        j--;
+        k--;
+    }
+}
+
+int main() {
+    int arr1[6] = {1, 3, 5, 0, 0, 0}; // Example sorted array 1
+    int m = 3; // Number of elements in arr1
+
+    int arr2[3] = {2, 4, 6}; // Example sorted array 2
+    int n = 3; // Number of elements in arr2
+
+    mergeArrays(arr1, m, arr2, n);
+
+    printf("Merged array: ");
+    for (int i = 0; i < m + n; i++) {
+        printf("%d ", arr1[i]);
+    }
+
+    return 0;
+}
