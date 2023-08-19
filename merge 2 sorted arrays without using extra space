@@ -15,8 +15,6 @@ void mergeArrays(int arr1[], int m, int arr2[], int n) {
         }
         k--;
     }
-
-    // If elements in arr2 are left, copy them to the beginning of arr1
     while (j >= 0) {
         arr1[k] = arr2[j];
         j--;
