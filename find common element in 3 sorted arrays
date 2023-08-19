@@ -34,7 +34,7 @@ void findCommon(int ar1[], int ar2[], int ar3[], int n1,
         else if (ar2[j] < ar3[k])
             j++;
 
-        // We reach here when x > y and z < y, i.e., z is
+        // We reach here when x > y and z < y,  z is
         // smallest
         else
             k++;
