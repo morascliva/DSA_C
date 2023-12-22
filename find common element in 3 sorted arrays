@@ -10,6 +10,7 @@ Expected Auxiliary Space: O(n1 + n2 + n3)
 
 #include <stdio.h>
 
+
 void findCommon(int ar1[], int ar2[], int ar3[], int n1,
                 int n2, int n3)
 {
