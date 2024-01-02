@@ -10,6 +10,7 @@ public static String SortString(String str)
 public static boolean checkAnagrams(String str1, String str2)
   {
     // Case 1: when both of the strings have different lengths
+
     if (str1.length() != str2.length())
       return false;
  
