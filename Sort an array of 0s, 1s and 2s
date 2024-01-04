@@ -10,6 +10,7 @@ void sort012(int arr[], int n)
         while(mid<=high)
   {  
         switch(arr[mid]){
+
             
 
                 case 0: 
